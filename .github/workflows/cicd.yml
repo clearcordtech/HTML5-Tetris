@@ -15,5 +15,8 @@ jobs:
             username: ${{ secrets.USERNAME  }}
             key: ${{ secrets.PASSWORD  }}
             
-            script: whoami
+            script: |
+              cd /var/www/html/HTML5-Tetris
+              git pull
+              sudo systemctl restart nginx
             
