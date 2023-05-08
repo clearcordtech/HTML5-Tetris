@@ -2,18 +2,17 @@ name: static deploy app
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
     build:
-        name: ssh into vm
+        name: deploy Tetris
         runs-on: ubuntu-latest
         steps:
-        - name: use actions to ssh into vm
-          uses: appleboy/ssh-action@master
+        - name: deploy over ssh
+          uses:  appleboy/ssh-action@v0.1.10
           with:            
-            host: ${{ secrets.HOST  }}
-            username: ${{ secrets.USRNAME  }}
+            host: 40.117.103.65
+            username: azureuser
             key: ${{ secrets.PASSWORD  }}
-            port: ${{ secrets.PORT }}
             script: whoami
             
