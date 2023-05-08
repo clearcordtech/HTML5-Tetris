@@ -11,8 +11,9 @@ jobs:
         - name: deploy over ssh
           uses:  appleboy/ssh-action@v0.1.10
           with:            
-            host: 40.117.103.65
-            username: azureuser
+            host: ${{ secrets.HOST  }}
+            username: ${{ secrets.USRNAME  }}
             key: ${{ secrets.PASSWORD  }}
+            
             script: whoami
             
